@@ -1,10 +1,3 @@
-// ========================================
-// Antigravity Blogs - Main JavaScript
-// ========================================
-
-// ========================================
-// Blog Data (12+ Posts)
-// ========================================
 
 const blogs = [
   {
@@ -1095,7 +1088,7 @@ function loadBlogDetail() {
   }
 
   // Update page title
-  document.title = `${blog.title} | Antigravity Blogs`;
+  document.title = `${blog.title} | MONOTEXT`;
 
   // Render blog content
   const container = document.getElementById('blog-detail-container');
