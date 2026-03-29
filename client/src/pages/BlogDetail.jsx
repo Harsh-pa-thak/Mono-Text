@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getBlogById } from '../services/blogService';
 import CommentSection from '../components/CommentSection';
 import AISummary from '../components/AISummary';
+import AIChat from '../components/AIChat';
 import { useToast } from '../components/Toast';
 
 function formatDate(dateStr) {
@@ -20,7 +21,14 @@ export default function BlogDetail() {
   const [progress, setProgress] = useState(0);
   const [tocItems, setTocItems] = useState([]);
   const [activeId, setActiveId] = useState('');
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatSummaryMsg, setChatSummaryMsg] = useState('');
   const contentRef = useRef(null);
+
+  const handleSummarizeDone = (summary) => {
+    setChatSummaryMsg(summary);
+    setChatOpen(true);
+  };
 
   useEffect(() => {
     loadBlog();
@@ -141,8 +149,8 @@ export default function BlogDetail() {
               style={{ width: '100%', borderRadius: 'var(--radius-lg)', marginBottom: '2rem', objectFit: 'cover', height: 380 }}
             />
 
-            {/* AI Summary */}
-            <AISummary content={blog.content} />
+            {/* AI Summary Button */}
+            <AISummary content={blog.content} onSummarize={handleSummarizeDone} />
 
             {/* Blog Content */}
             <div
@@ -187,10 +195,15 @@ export default function BlogDetail() {
           </div>
 
           {/* Sidebar – TOC */}
-          <aside>
+          <aside style={chatOpen ? { display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'sticky', top: '100px', height: 'calc(100vh - 120px)', overflowY: 'auto', paddingRight: '0.5rem' } : {}}>
             {tocItems.length > 0 && (
-              <div className="toc">
-                <div className="toc-title">📋 Table of Contents</div>
+              <div className="toc" style={chatOpen ? { position: 'static', maxHeight: 'none', flexShrink: 0 } : {}}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div className="toc-title" style={{ marginBottom: 0 }}>📋 Table of Contents</div>
+                  {chatOpen && (
+                     <button onClick={() => setChatOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--text-tertiary)', cursor: 'pointer', fontSize: '1.2rem' }}>✕</button>
+                  )}
+                </div>
                 <ul className="toc-list">
                   {tocItems.map((item) => (
                     <li key={item.id} className="toc-item">
@@ -208,6 +221,12 @@ export default function BlogDetail() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+            
+            {chatOpen && (
+              <div style={{ flex: 1, minHeight: 400 }}>
+                <AIChat blogContent={blog.content} initialMessage={chatSummaryMsg} />
               </div>
             )}
           </aside>
