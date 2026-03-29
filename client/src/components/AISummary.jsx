@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { summarize } from '../services/aiService';
 import { useToast } from './Toast';
 
-export default function AISummary({ content }) {
+export default function AISummary({ content, onSummarize }) {
   const { showToast } = useToast();
   const [summary, setSummary] = useState('');
   const [loading, setLoading] = useState(false);
@@ -12,8 +12,13 @@ export default function AISummary({ content }) {
     try {
       setLoading(true);
       const data = await summarize(content);
-      setSummary(data.summary);
-      setDone(true);
+      
+      if (onSummarize) {
+        onSummarize(data.summary);
+      } else {
+        setSummary(data.summary);
+        setDone(true);
+      }
     } catch (err) {
       showToast(err.message, 'error');
     } finally {
@@ -21,7 +26,7 @@ export default function AISummary({ content }) {
     }
   };
 
-  if (done && summary) {
+  if (done && summary && !onSummarize) {
     return (
       <div className="ai-summary-box">
         <div className="ai-summary-label">
