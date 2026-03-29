@@ -1,4 +1,3 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // POST /ai/summarize
 const summarize = async (req, res, next) => {
@@ -21,14 +20,17 @@ const summarize = async (req, res, next) => {
       .trim()
       .slice(0, 600);
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-preview-04-17' });
+    const { GoogleGenAI } = require('@google/genai');
+    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
     // Short prompt = fewer tokens = stays in free tier
     const prompt = `Summarize this blog excerpt in 2 sentences:\n\n${plainText}`;
 
-    const result = await model.generateContent(prompt);
-    const summary = result.response.text();
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+    });
+    const summary = response.text;
 
     res.json({ summary });
   } catch (error) {
