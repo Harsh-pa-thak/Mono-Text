@@ -13,13 +13,19 @@ const summarize = async (req, res, next) => {
       return res.status(503).json({ error: 'Gemini API key not configured. Please add it to server/.env' });
     }
 
-    // Strip HTML tags for clean text input
-    const plainText = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    // Strip HTML, collapse whitespace, then take only first 600 chars
+    // to stay well within free-tier token limits (one small request)
+    const plainText = content
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 600);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
 
-    const prompt = `Please provide a concise, engaging 2-3 sentence summary of the following blog post content. Focus on the key insights and main takeaways. Keep it conversational and informative:\n\n${plainText}`;
+    // Short prompt = fewer tokens = stays in free tier
+    const prompt = `Summarize this blog excerpt in 2 sentences:\n\n${plainText}`;
 
     const result = await model.generateContent(prompt);
     const summary = result.response.text();
