@@ -22,7 +22,7 @@ const summarize = async (req, res, next) => {
       .slice(0, 600);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-preview-04-17' });
 
     // Short prompt = fewer tokens = stays in free tier
     const prompt = `Summarize this blog excerpt in 2 sentences:\n\n${plainText}`;
