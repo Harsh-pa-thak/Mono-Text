@@ -100,6 +100,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 | GET | `/comments/:blogId` | Get comments for a blog |
 | POST | `/comments/:blogId` | Add a comment (login required) |
 | POST | `/ai/summarize` | Generate AI summary of blog content |
+| POST | `/ai/chat` | Continuous contextual AI chat |
 
 ---
 
@@ -127,7 +128,8 @@ GEMINI_API_KEY=your_gemini_api_key_here
 ```
 client/src/
 ├── components/
-│   ├── AISummary.jsx        ← Gemini summarization button + result
+│   ├── AIChat.jsx           ← Sidebar AI chat interface
+│   ├── AISummary.jsx        ← Gemini summarization button
 │   ├── BlobBackground.jsx   ← Animated gradient blobs
 │   ├── BlogCard.jsx         ← Blog post card
 │   ├── BlogCardSkeleton.jsx ← Shimmer loading card
@@ -174,7 +176,7 @@ server/
 - 🔐 **Auth** — signup, login, bcrypt passwords, localStorage session
 - 📝 **CRUD Blogs** — create, read, delete (your own)
 - 💬 **Comments** — per-blog comment thread
-- 🤖 **AI Summarize** — Gemini 1.5 Flash summaries on demand
+- 🤖 **AI Summarize & Chat** — Continuous conversational AI powered by Gemini 2.5 Flash (`@google/genai` SDK)
 - 🔍 **Search + Filter** — real-time search, tag filters, sort
 - ⚡ **Skeleton Loading** — shimmer cards while fetching
 - 📖 **Reading Progress** — top progress bar on blog detail
