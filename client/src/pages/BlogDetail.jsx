@@ -21,7 +21,7 @@ export default function BlogDetail() {
   const [progress, setProgress] = useState(0);
   const [tocItems, setTocItems] = useState([]);
   const [activeId, setActiveId] = useState('');
-  const [chatOpen, setChatOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(true);
   const [chatSummaryMsg, setChatSummaryMsg] = useState('');
   const contentRef = useRef(null);
 
@@ -194,16 +194,11 @@ export default function BlogDetail() {
             <CommentSection blogId={id} />
           </div>
 
-          {/* Sidebar – TOC */}
-          <aside style={chatOpen ? { display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'sticky', top: '100px', height: 'calc(100vh - 120px)', overflowY: 'auto', paddingRight: '0.5rem' } : {}}>
+          {/* Sidebar */}
+          <aside className="blog-detail-sidebar">
             {tocItems.length > 0 && (
-              <div className="toc" style={chatOpen ? { position: 'static', maxHeight: 'none', flexShrink: 0 } : {}}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                  <div className="toc-title" style={{ marginBottom: 0 }}>📋 Table of Contents</div>
-                  {chatOpen && (
-                     <button onClick={() => setChatOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--text-tertiary)', cursor: 'pointer', fontSize: '1.2rem' }}>✕</button>
-                  )}
-                </div>
+              <div className="toc">
+                <div className="toc-title">📋 Table of Contents</div>
                 <ul className="toc-list">
                   {tocItems.map((item) => (
                     <li key={item.id} className="toc-item">
@@ -223,12 +218,12 @@ export default function BlogDetail() {
                 </ul>
               </div>
             )}
-            
-            {chatOpen && (
-              <div style={{ flex: 1, minHeight: 400 }}>
-                <AIChat blogContent={blog.content} initialMessage={chatSummaryMsg} />
-              </div>
-            )}
+
+            <AIChat
+              blogContent={blog.content}
+              initialMessage={chatSummaryMsg}
+              onClose={null}
+            />
           </aside>
         </div>
       </div>

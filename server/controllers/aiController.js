@@ -25,7 +25,7 @@ const summarize = async (req, res, next) => {
     const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
     // Short prompt = fewer tokens = stays in free tier
-    const prompt = `Summarize this blog excerpt in 2 sentences:\n\n${plainText}`;
+    const prompt = `Summarize this blog excerpt in 10 sentences:\n\n${plainText}`;
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',

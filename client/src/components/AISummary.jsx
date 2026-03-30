@@ -29,13 +29,17 @@ export default function AISummary({ content, onSummarize }) {
   if (done && summary && !onSummarize) {
     return (
       <div className="ai-summary-box">
-        <div className="ai-summary-label">
-          AI Summary
+        <div className="ai-summary-header">
+          <div className="ai-summary-badge">
+            <span className="ai-badge-icon">✦</span>
+            <span>AI Summary</span>
+          </div>
+          <span className="ai-summary-model">Gemini 2.5</span>
         </div>
         <p className="ai-summary-text">{summary}</p>
         <button
           onClick={() => { setSummary(''); setDone(false); }}
-          style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--text-tertiary)', background: 'none', border: 'none', cursor: 'pointer' }}
+          className="ai-summary-dismiss"
         >
           Dismiss
         </button>
@@ -44,13 +48,32 @@ export default function AISummary({ content, onSummarize }) {
   }
 
   return (
-    <button
-      className="btn-secondary"
-      onClick={handleSummarize}
-      disabled={loading}
-      style={{ marginTop: '1rem' }}
-    >
-      {loading ? 'Summarizing...' : 'AI Summarize'}
-    </button>
+    <div className="ai-cta-banner">
+      <div className="ai-cta-glow" />
+      <div className="ai-cta-left">
+        <div className="ai-cta-icon">✦</div>
+        <div>
+          <div className="ai-cta-title">Too long? Let AI summarize it</div>
+          <div className="ai-cta-sub">Get a smart, concise summary powered by Gemini 2.5</div>
+        </div>
+      </div>
+      <button
+        className="ai-cta-btn"
+        onClick={handleSummarize}
+        disabled={loading}
+      >
+        {loading ? (
+          <>
+            <span className="ai-btn-spinner" />
+            Summarizing…
+          </>
+        ) : (
+          <>
+            <span>✦</span>
+            Summarize with AI
+          </>
+        )}
+      </button>
+    </div>
   );
 }
