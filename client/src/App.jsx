@@ -35,7 +35,7 @@ export default function App() {
                   <Route path="/write" element={<Write />} />
                   <Route path="*" element={
                     <div className="empty-state" style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                      <div className="empty-state-icon">🌐</div>
+                      <div className="empty-state-icon"></div>
                       <h3>404 — Page Not Found</h3>
                       <p>The page you're looking for doesn't exist.</p>
                     </div>

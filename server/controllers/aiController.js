@@ -1,5 +1,5 @@
 
-// POST /ai/summarize
+
 
 const summarize = async (req, res, next) => {
   try {

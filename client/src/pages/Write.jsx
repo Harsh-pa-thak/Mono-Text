@@ -50,7 +50,7 @@ export default function Write() {
         tags,
         author: user.username,
       });
-      showToast('Post published! 🎉', 'success');
+      showToast('Post published!', 'success');
       navigate(`/blog/${blog._id}`);
     } catch (err) {
       setError(err.message);
@@ -63,7 +63,7 @@ export default function Write() {
     <section className="section">
       <div className="container" style={{ maxWidth: 800 }}>
         <div style={{ marginBottom: '2rem' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>✏️ Write a Post</h1>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Write a Post</h1>
           <p style={{ color: 'var(--text-secondary)' }}>Share your knowledge with the MONOTEXT community</p>
         </div>
 
@@ -163,7 +163,7 @@ You can use HTML tags like:
                 className="btn-primary"
                 disabled={loading}
               >
-                {loading ? '⏳ Publishing...' : '🚀 Publish Post'}
+                {loading ? 'Publishing...' : 'Publish Post'}
               </button>
             </div>
           </form>

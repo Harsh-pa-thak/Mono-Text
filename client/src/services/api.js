@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-// Using Vite proxy so base URL is just '/'
 const api = axios.create({
   baseURL: '/',
   headers: { 'Content-Type': 'application/json' },
 });
 
-// Response interceptor for error normalization
 api.interceptors.response.use(
   (res) => res,
   (err) => {

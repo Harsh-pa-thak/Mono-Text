@@ -30,14 +30,12 @@ app.use('/blogs', blogRoutes);
 app.use('/comments', commentRoutes);
 app.use('/ai', aiRoutes);
 
-// 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: `Route ${req.originalUrl} not found` });
 });
 
-// Centralized error handler (must be last)
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`🚀 MonoText server running on http://localhost:${PORT}`);
+  console.log(`MonoText server running on http://localhost:${PORT}`);
 });
