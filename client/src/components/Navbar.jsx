@@ -56,14 +56,14 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           {/* Theme Toggle */}
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-            {theme === 'dark' ? '☀️' : '🌙'}
+            {theme === 'dark' ? 'L' : 'D'}
           </button>
 
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <button className="btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}
                 onClick={() => navigate('/write')}>
-                ✏️ Write
+                Write
               </button>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <div style={{
