@@ -105,7 +105,7 @@ export default function About() {
         <div className="container">
           <div className="section-header fade-in">
             <h2 className="section-title">Built By</h2>
-            <p className="section-subtitle">Made with ❤️ by two passionate developers</p>
+            <p className="section-subtitle">Made By Harsh And Anubhav</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', maxWidth: 600, margin: '0 auto' }}>
             {[

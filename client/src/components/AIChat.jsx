@@ -59,7 +59,7 @@ export default function AIChat({ blogContent, initialMessage }) {
             Ask anything about this blog!
           </div>
         )}
-        
+
         {messages.map((msg, idx) => (
           <div key={idx} className={`ai-chat-message-row ${msg.role}`}>
             {msg.role === 'model' && (
@@ -70,7 +70,7 @@ export default function AIChat({ blogContent, initialMessage }) {
             </div>
           </div>
         ))}
-        
+
         {loading && (
           <div className="ai-chat-message-row model">
             <div className="ai-chat-avatar">AI</div>

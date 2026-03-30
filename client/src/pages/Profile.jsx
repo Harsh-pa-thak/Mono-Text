@@ -76,10 +76,10 @@ export default function Profile() {
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <button className="btn-primary" onClick={() => navigate('/write')}>
-              ✏️ Write New Post
+              Write New Post
             </button>
             <button className="btn-secondary" onClick={() => { logout(); navigate('/'); showToast('Logged out!'); }}>
-              🚪 Log Out
+              Log Out
             </button>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Profile() {
               <h3>No posts yet</h3>
               <p>Share your knowledge with the community!</p>
               <button className="btn-primary" style={{ marginTop: '1rem' }} onClick={() => navigate('/write')}>
-                ✏️ Write Your First Post
+                Write Your First Post
               </button>
             </div>
           ) : (

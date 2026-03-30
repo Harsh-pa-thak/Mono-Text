@@ -30,7 +30,7 @@ export default function Signup() {
       const { login: loginService } = await import('../services/authService');
       const { user } = await loginService({ email: form.email, password: form.password });
       login(user);
-      showToast(`Welcome to MONOTEXT, ${user.username}! 🎉`, 'success');
+      showToast(`Welcome to MONOTEXT, ${user.username}!`, 'success');
       navigate('/');
     } catch (err) {
       setError(err.message);
@@ -50,7 +50,7 @@ export default function Signup() {
                 background: 'var(--gradient-accent)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: '1.5rem', margin: '0 auto 1rem'
-              }}>✨</div>
+              }}></div>
               <h2 style={{ marginBottom: '0.25rem' }}>Create Account</h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
                 Join the MONOTEXT community
