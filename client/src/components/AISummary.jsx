@@ -54,7 +54,7 @@ export default function AISummary({ content, onSummarize }) {
         <div className="ai-cta-icon">✦</div>
         <div>
           <div className="ai-cta-title">Too long? Let AI summarize it</div>
-          <div className="ai-cta-sub">Get a smart, concise summary powered by Gemini 2.5</div>
+          <div className="ai-cta-sub">Get a smart, concise summary</div>
         </div>
       </div>
       <button
