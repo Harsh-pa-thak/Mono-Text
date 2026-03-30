@@ -12,7 +12,7 @@ export default function AISummary({ content, onSummarize }) {
     try {
       setLoading(true);
       const data = await summarize(content);
-      
+
       if (onSummarize) {
         onSummarize(data.summary);
       } else {
@@ -30,7 +30,7 @@ export default function AISummary({ content, onSummarize }) {
     return (
       <div className="ai-summary-box">
         <div className="ai-summary-label">
-          ✨ AI Summary
+          AI Summary
         </div>
         <p className="ai-summary-text">{summary}</p>
         <button
@@ -50,7 +50,7 @@ export default function AISummary({ content, onSummarize }) {
       disabled={loading}
       style={{ marginTop: '1rem' }}
     >
-      {loading ? '⏳ Summarizing...' : '✨ AI Summarize'}
+      {loading ? 'Summarizing...' : 'AI Summarize'}
     </button>
   );
 }
