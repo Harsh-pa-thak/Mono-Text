@@ -196,29 +196,6 @@ export default function BlogDetail() {
 
           {/* Sidebar */}
           <aside className="blog-detail-sidebar">
-            {tocItems.length > 0 && (
-              <div className="toc">
-                <div className="toc-title">📋 Table of Contents</div>
-                <ul className="toc-list">
-                  {tocItems.map((item) => (
-                    <li key={item.id} className="toc-item">
-                      <a
-                        href={`#${item.id}`}
-                        className={`toc-link ${activeId === item.id ? 'active' : ''}`}
-                        style={{ paddingLeft: item.level === 'H3' ? '2rem' : '1rem' }}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                      >
-                        {item.text}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
             <AIChat
               blogContent={blog.content}
               initialMessage={chatSummaryMsg}
