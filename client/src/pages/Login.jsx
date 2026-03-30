@@ -93,7 +93,7 @@ export default function Login() {
                 style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
                 disabled={loading}
               >
-                {loading ? '⏳ Signing in...' : '🔐 Sign In'}
+                {loading ? ' Signing in...' : ' Sign In'}
               </button>
             </form>
 
