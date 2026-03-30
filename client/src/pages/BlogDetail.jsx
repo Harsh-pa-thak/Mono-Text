@@ -19,8 +19,6 @@ export default function BlogDetail() {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [tocItems, setTocItems] = useState([]);
-  const [activeId, setActiveId] = useState('');
   const [chatOpen, setChatOpen] = useState(true);
   const [chatSummaryMsg, setChatSummaryMsg] = useState('');
   const contentRef = useRef(null);
@@ -43,28 +41,6 @@ export default function BlogDetail() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Build TOC after blog renders
-  useEffect(() => {
-    if (!contentRef.current) return;
-    const headings = contentRef.current.querySelectorAll('h2, h3');
-    const items = Array.from(headings).map((el, i) => {
-      const hid = `heading-${i}`;
-      el.id = hid;
-      return { id: hid, text: el.textContent, level: el.tagName };
-    });
-    setTocItems(items);
-
-    // IntersectionObserver for active TOC link
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) setActiveId(e.target.id); });
-      },
-      { rootMargin: '-100px 0px -60% 0px' }
-    );
-    headings.forEach((h) => observer.observe(h));
-    return () => observer.disconnect();
-  }, [blog]);
 
   const loadBlog = async () => {
     try {
