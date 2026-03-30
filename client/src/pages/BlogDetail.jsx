@@ -88,7 +88,7 @@ export default function BlogDetail() {
       <div className="reading-progress" style={{ width: `${progress}%` }} />
 
       <div className="container" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: '3rem', alignItems: 'start' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '3rem', alignItems: 'start' }}>
           {/* Main Content */}
           <div>
             {/* Header */}

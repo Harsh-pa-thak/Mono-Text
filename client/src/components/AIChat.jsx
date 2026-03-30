@@ -78,10 +78,7 @@ export default function AIChat({ blogContent, initialMessage, onClose }) {
           <div className="ai-chat-logo">
             <span className="ai-sparkle-icon">✦</span>
           </div>
-          <div>
-            <div className="ai-chat-title">AI Assistant</div>
-            <div className="ai-chat-subtitle">Powered by Gemini 2.5</div>
-          </div>
+          <div className="ai-chat-title">AI Assistant</div>
         </div>
         <div className="ai-chat-header-right">
           <div className="ai-status-dot" />

@@ -1977,7 +1977,7 @@ textarea.form-input {
   border-radius: var(--radius-lg);
   overflow: hidden;
   flex: 1;
-  min-height: 420px;
+  min-height: 560px;
   box-shadow: 0 0 30px rgba(102, 126, 234, 0.08), var(--shadow-md);
 }
 
@@ -2039,15 +2039,10 @@ textarea.form-input {
 }
 
 .ai-chat-title {
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
   color: var(--text-primary);
-  line-height: 1.2;
-}
-
-.ai-chat-subtitle {
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
+  letter-spacing: -0.01em;
 }
 
 .ai-chat-header-right {
