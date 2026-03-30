@@ -20,7 +20,7 @@ export default function BlogCard({ blog, onDelete }) {
   const imgUrl = `https://picsum.photos/seed/${imgSeed}/800/500`;
 
   return (
-    <div className="blog-card">
+    <div className="blog-card" style={{ cursor: 'pointer' }} onClick={() => navigate(`/blog/${blog._id}`)}>
       <div className="blog-card-image">
         <img src={imgUrl} alt={blog.title} loading="lazy" />
         <div className="blog-card-overlay" />
