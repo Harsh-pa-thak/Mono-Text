@@ -141,10 +141,10 @@ export default function Home() {
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button className="btn-primary" onClick={() => navigate('/explore')}>
-                🧭 Browse All Posts
+                Browse All Posts
               </button>
               <button className="btn-secondary" onClick={() => navigate('/about')}>
-                ℹ️ About Platform
+                About Platform
               </button>
             </div>
           </div>
