@@ -10,7 +10,7 @@ import { useAuth } from '../context/AuthContext';
 const CATEGORIES = [
   { icon: '⚡', name: 'JavaScript', variant: '' },
   { icon: '🎨', name: 'Design', variant: 'accent' },
-  { icon: '💅', name: 'CSS', variant: 'success' },
+  { icon: '🔰', name: 'CSS', variant: 'success' },
   { icon: '📘', name: 'Tutorial', variant: '' },
   { icon: '🚀', name: 'Web Dev', variant: 'accent' },
   { icon: '🖥️', name: 'Backend', variant: 'success' },
@@ -71,10 +71,10 @@ export default function Home() {
           </p>
           <div className="hero-buttons fade-in fade-in-delay-2">
             <button className="btn-primary" onClick={() => navigate('/explore')}>
-              🧭 Start Exploring
+              Start Exploring
             </button>
             <button className="btn-secondary" onClick={() => navigate('/about')}>
-              ℹ️ Learn More
+              Learn More
             </button>
           </div>
         </div>

@@ -111,7 +111,7 @@ export default function Signup() {
                 style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
                 disabled={loading}
               >
-                {loading ? '⏳ Creating account...' : '🚀 Create Account'}
+                {loading ? 'Creating account...' : 'Create Account'}
               </button>
             </form>
 

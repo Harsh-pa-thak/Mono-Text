@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          © 2026 MONOTEXT. All rights reserved. Built by Harsh and Anubhav, for developers.
+          © 2026 MONOTEXT. All rights reserved. Built by Harsh and Anubhab, for developers.
         </div>
       </div>
     </footer>
