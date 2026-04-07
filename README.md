@@ -4,7 +4,7 @@ A premium blogging platform for developers and designers, built with React, Node
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 blog2.0/
@@ -20,7 +20,7 @@ Browser → React (Vite:5173) → Vite Proxy → Express (5000) → MongoDB
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js v18+
@@ -72,7 +72,7 @@ npm run dev
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 Create `server/.env` from `server/.env.example`:
 
@@ -104,7 +104,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 ---
 
-## 🧩 Data Models
+##  Data Models
 
 ### User
 ```js
@@ -123,7 +123,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 client/src/
@@ -170,20 +170,21 @@ server/
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🌗 **Dark/Light Mode** — persisted in localStorage
-- 🔐 **Auth** — signup, login, bcrypt passwords, localStorage session
-- 📝 **CRUD Blogs** — create, read, delete (your own)
-- 💬 **Comments** — per-blog comment thread
-- 🤖 **AI Summarize & Chat** — Continuous conversational AI powered by Gemini 2.5 Flash (`@google/genai` SDK)
-- 🔍 **Search + Filter** — real-time search, tag filters, sort
-- ⚡ **Skeleton Loading** — shimmer cards while fetching
-- 📖 **Reading Progress** — top progress bar on blog detail
-- 📋 **Table of Contents** — auto-generated from headings
+-  **Dark/Light Mode** — persisted in localStorage
+-  **Auth** — signup, login, bcrypt passwords, localStorage session
+-  **CRUD Blogs** — create, read, delete (your own)
+-  **Comments** — per-blog comment thread
+-  **AI Summarize & Chat** — Continuous conversational AI powered by Gemini 2.5 Flash (`@google/genai` SDK)
+-  **Search + Filter** — real-time search, tag filters, sort
+-  **Skeleton Loading** — shimmer cards while fetching
+-  **Reading Progress** — top progress bar on blog detail
+-  **Table of Contents** — auto-generated from headings
 
 ---
 
-## 🧑‍💻 Authors
+##  Authors
+Harsh
 
 Built with ❤️ by **Harsh Pathak** and **Anubhav**, for developers.
