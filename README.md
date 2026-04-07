@@ -185,6 +185,5 @@ server/
 ---
 
 ##  Authors
-Harsh
 
-Built with ❤️ by **Harsh Pathak** and **Anubhav**, for developers.
+Built by **Harsh Pathak** and **Anubhav**, for developers.
